@@ -3,19 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Appy</title>
+  <style>
+    button {
+      background: red;
+    }
+
+    label {
+      cursor: pointer
+    }
+
+  </style>
 </head>
 <body>
   <h1>Just an App</h1>
+  <main>
+
+    <p>
+      <label>
+        number:
+        <input type="number" id="number" />
+      </label>
+    </p>
+
+    <label>
+      <input name="power" type="radio" value="2"> Square
+    </label>
+
+    <label>
+      <input name="power" type="radio" value="3"> Cube
+    </label>
+
+    <label>
+      <input name="power" type="radio" value="4"> Tesseract
+    </label>
+
+
+    <p>
+      <button onclick="calc()">click me</button>
+    </p>
+
+    <p id="result">
+
+    </p>
+  </main>
 
   <script>
 
-
-    for (var i=0; i < 20; i++){
-      console.log(i + 1);
+    function count() {
+      for (var i=0; i < 20; i++){
+        console.log(i + 1);
+      }
     }
 
+    function calc() {
+      var input = document.getElementById('number');
+      var number = input.value;
+      var radio = document.querySelector('input[name=power]:checked');
+      var power = radio.value;
 
+      if (power == 2){
+        powPhrase = "2nd"
+      }
+      else if (power == 3) {
+        powPhrase = "3rd"
+      }
+      else if (power == 4) {
+        powPhrase = "4th"
+      }
+
+
+
+      if (isNaN(number)){
+        alert('please input a number')
+      }
+
+      else {
+        var radio = document.querySelector('input[name=power]:checked');
+        // console.log(radio.value);
+
+        var p = document.getElementById('result');
+        p.innerHTML = number + " to the " + powPhrase + " power is equal to " + Math.pow(number,power);
+
+      }
+
+    }
 
   </script>
 
